@@ -9,7 +9,6 @@ search_queries = ["happy baby", "sad baby", "weeping baby"]
 folder_names = ["happy_baby", "sad_baby", "weeping_baby"]
 
 driver=webdriver.Chrome(ChromeDriverManager().install())
-driver.implicitly_wait(10)
 
 # Loop through the search queries
 for query, folder_name in zip(search_queries, folder_names):
