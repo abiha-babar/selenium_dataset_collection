@@ -1,18 +1,22 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
+import pdb
 import urllib
 import os
 
 # Define the search queries and folder names
+# pdb.set_trace()
 search_queries = ["happy baby", "sad baby", "weeping baby"]
-folder_names = ["happy_baby", "sad_baby", "weeping_baby"]
+# folder_names = ["happy_baby", "sad_baby", "weeping_baby"]
 
 driver=webdriver.Chrome(ChromeDriverManager().install())
 
 # Loop through the search queries
-for query, folder_name in zip(search_queries, folder_names):
+for query in search_queries:
     # Navigate to Google Images and search for the query
+
+    folder_name = query.replace(' ', '_')
     driver.get("https://www.google.com/imghp")
     search_bar = driver.find_element(By.NAME, "q")
     search_bar.send_keys(query)
